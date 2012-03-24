@@ -14,7 +14,8 @@ exports.index = function(req, res){
  */
 exports.get_topic = function(req, res){
     res.contentType('application/json');
-    var mongo = new mongodb.Db('data_visualization', new mongodb.Server('127.0.0.1', 27017, {}));
+    //var mongo = new mongodb.Db('data_visualization', new mongodb.Server('127.0.0.1', 27017, {}));
+    var mongo = new mongodb.Db('data_visualization', new mongodb.Server('10.66.83.28', 27017, {}));
     mongo.open(function(err, db){
         if (err) throw err;
         db.collection('topics', function(err, collection) {

@@ -32,6 +32,5 @@ app.configure('production', function(){
 
 app.get('/', routes.index);
 app.get('/json-topic-data', routes.get_topic);
-app.get('/view-topics', routes.view_topics);
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

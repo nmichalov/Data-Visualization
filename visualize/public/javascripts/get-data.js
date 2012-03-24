@@ -1,6 +1,7 @@
 var topicURL = '/json-topic-data';
 
-DocModel = function(url,topics){
+//topicVector = function(topics){
+DocModel = function(url, topics){
     var topicArray = [];
     for (i=0;i<10;i++){
         topicArray.push(0);}
@@ -19,7 +20,8 @@ $.getJSON(topicURL, function(data) {
     $.each(data, function(key, val) {
         $('#urls').append('<div>'+val.url+'</div>');
         var paper = Raphael(100, 100, 800,800);
-        var dm = new DocModel(val.url,val.topics);
+        var dm = new DocModel(val.url, val.topics);
+        //d3.select('#urls').append('div').text(val.url+'\n'+topicVector(val.topics));
         dm.createGraph(paper, 700, 120, 100);
     });
 });

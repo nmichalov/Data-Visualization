@@ -39,6 +39,7 @@ if __name__ == '__main__':
     for entry in corpus_lda_model.show_topics(topics=-1, topn=30):
         entry = sorted(entry.split('+'))
         print entry
+    print dictionary.token2id
 #    page_urls = get_page_urls(target_directory)
 #    connection = pymongo.Connection()
 #    db = connection.data_visualization

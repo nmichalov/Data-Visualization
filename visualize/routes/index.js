@@ -6,7 +6,7 @@ var mongodb = require('mongodb');
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Expess' })
+  res.render('index', { title: 'Topic Visualization' })
 };
 
 /*
@@ -24,8 +24,3 @@ exports.get_topic = function(req, res){
         });
     });
 };
-
-exports.view_topics = function(req, res) {
-    res.render('view-topics', { title: 'Topics' });
-};
-

@@ -1,6 +1,8 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /*background: #000000;*/
+  background: #FFFFFF;
+  font: 14px "Proxima Nova Bold","Helvetica Neue",Arial,Helvetica,sans-serif;
 }
 
 a {
@@ -10,4 +12,8 @@ a {
 #document {
   color: #00B7FF;
 }
-  
+ 
+
+#urls {
+  background: #FFFFFF;
+}

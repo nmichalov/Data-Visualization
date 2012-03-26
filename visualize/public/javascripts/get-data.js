@@ -2,9 +2,7 @@ var topicURL = '/json-topic-data';
 
 //topicVector = function(topics){
 DocModel = function(url, topics){
-    var topicArray = [];
-    for (i=0;i<10;i++){
-        topicArray.push(0);}
+    topicArray= [0,0,0,0,0,0,0,0,0,0];
     for (i=0;i<topics.length;i++){
         topicArray[(topics[i][0]-1)] = topics[i][1];}
     this.topics=topicArray;

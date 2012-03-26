@@ -19,8 +19,9 @@ exports.get_topic = function(req, res){
         if (err) throw err;
         db.collection('topics', function(err, collection) {
             collection.find().limit(10).toArray(function(err, docs) {
-                res.send(JSON.stringify(docs), 200);
-            });
-        });
-    });
-};
+                res.send(JSON.stringify(docs, 200));
+               });
+          });
+      });
+  };
+

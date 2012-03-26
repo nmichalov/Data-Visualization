@@ -1,4 +1,4 @@
-var topicURL = '/json-topic-data';
+var rawDataURL= '/json-topic-data';
 
 function normTopicVecs(topics){
     topicArray= [0,0,0,0,0,0,0,0,0,0];
@@ -7,21 +7,13 @@ function normTopicVecs(topics){
     return topicArray;
 };
 
-function getNormedData() {
-    var normedData = new Array();
-    $.getJSON(topicURL, function(data) {
-        $.each(data, function(key, val) {
-            normedData.push({
-                //url: val.url,
-                topics: normTopicVecs(val.topics)
-            })
-        });
-            //d3.select('#urls').append('div').text(val.url+'\n'+topicVector(val.topics));
-    });
-    return normedData;
-};
+//$.getJSON(topicURL, function(data) {
+  //  $.each(data, function(key, val) {
+        //$('#urls').append('<div>'+val.url+'</div>');
+        
+    //});
+//});
 
-//var data = getNormedData();
 var data = [{year: 2006, books: 54},
             {year: 2007, books: 43},
             {year: 2008, books: 41},
@@ -51,3 +43,28 @@ barDemo.selectAll("rect").
     attr("height", function(datum) { return y(datum.books); }).
     attr("width", barWidth).
     attr("fill", "#2d578b");
+
+barDemo.selectAll("text").
+    data(data).
+    enter().
+    append("svg:text").
+    attr("x", function(datum, index) { return x(index) + barWidth; }).
+    attr("y", function(datum) { return height - y(datum.books); }).
+    attr("dx", -barWidth/2).
+    attr("dy", "1.2em").
+    attr("text-anchor", "middle").
+    text(function(datum) { return datum.books;}).
+    attr("fill", "white");
+
+barDemo.selectAll("text.yAxis").
+    data(data).
+    enter().append("svg:text").
+    attr("x", function(datum, index) { return x(index) + barWidth; }).
+    attr("y", height).
+    attr("dx", -barWidth/2).
+    attr("text-anchor", "middle").
+    attr("style", "font-size: 12; font-family: Helvetica, sans-serif").
+    text(function(datum) { return datum.year;}).
+    attr("transform", "translate(0, 18)").
+    attr("class", "yAxis");
+

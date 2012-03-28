@@ -34,18 +34,18 @@ if __name__ == '__main__':
     target_directory = 'OldData'
     dictionary = corpora.Dictionary(line.split() for line in yield_page_text(target_directory))
     corpus = [dictionary.doc2bow(text) for text in yield_page_text(target_directory)]
-    corpus_lda_model = models.ldamodel.LdaModel(corpus, id2word=dictionary, num_topics=10)
+    corpus_lda_model = models.ldamodel.LdaModel(corpus, id2word=dictionary, num_topics=3)
     lda_corpus = corpus_lda_model[corpus]
     for entry in corpus_lda_model.show_topics(topics=-1, topn=30):
         entry = sorted(entry.split('+'))
         print entry
     print dictionary.token2id
-#    page_urls = get_page_urls(target_directory)
-#    connection = pymongo.Connection()
-#    db = connection.data_visualization
-#    j = 0
-#    for topic_model in lda_corpus:
-#        topic_entry = {'url': page_urls[j],
-#                       'topics': topic_model}
-#        db.topics.save(topic_entry)
-#        j += 1
+    page_urls = get_page_urls(target_directory)
+    connection = pymongo.Connection()
+    db = connection.data_visualization
+    j = 0
+    for topic_model in lda_corpus:
+        topic_entry = {'url': page_urls[j],
+                       'topics': topic_model}
+        db.topics.save(topic_entry)
+        j += 1

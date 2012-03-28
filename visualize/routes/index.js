@@ -18,7 +18,7 @@ exports.get_topic = function(req, res){
     mongo.open(function(err, db){
         if (err) throw err;
         db.collection('topics', function(err, collection) {
-            collection.find().limit(10).toArray(function(err, docs) {
+            collection.find().toArray(function(err, docs) { //limit(10).toArray(function(err, docs) {
                 res.send(JSON.stringify(docs, 200));
                });
           });

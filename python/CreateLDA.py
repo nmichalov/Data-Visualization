@@ -34,7 +34,7 @@ if __name__ == '__main__':
     target_directory = 'OldData'
     dictionary = corpora.Dictionary(line.split() for line in yield_page_text(target_directory))
     corpus = [dictionary.doc2bow(text) for text in yield_page_text(target_directory)]
-    corpus_lda_model = models.ldamodel.LdaModel(corpus, id2word=dictionary, num_topics=3)
+    corpus_lda_model = models.ldamodel.LdaModel(corpus, id2word=dictionary, num_topics=20)
     lda_corpus = corpus_lda_model[corpus]
     for entry in corpus_lda_model.show_topics(topics=-1, topn=30):
         entry = sorted(entry.split('+'))

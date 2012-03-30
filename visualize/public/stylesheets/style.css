@@ -31,7 +31,10 @@ body {
 }
 
 #documents .document {
+  text-align: center;
   padding: .25% 1%; 
+  cursor: pointer;
+  border: 1px solid #ccc;
 }
 
 #documents .document h3 {

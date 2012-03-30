@@ -24,20 +24,15 @@ $.getJSON(rawDataURL, function(data) {
 
     $('#documents').on('click', '.document', function(){
 
-        var divTops= this.getAttribute('topics').split(',');
+        var divTops= this.getAttribute('topics').split(',')
+          , data= [];
 
         console.log(divTops);
 
-        data= [{'number':'one', 'topic': divTops[0]},
-               {'number':'two', 'topic': divTops[1]},
-               {'number':'three', 'topic': divTops[2]},
-               {'number':'four', 'topic': divTops[3]},
-               {'number':'five', 'topic': divTops[4]},
-               {'number':'six', 'topic': divTops[5]},
-               {'number':'seven', 'topic': divTops[6]},
-               {'number':'eight', 'topic': divTops[7]},
-               {'number':'nine', 'topic': divTops[8]},
-               {'number':'ten', 'topic': divTops[9]}];
+        for (i=0;i<divTops.length;i++){
+            data.push({
+                       'topic': divTops[i]
+                      });}
 
         var width = 600,
             height = 600,

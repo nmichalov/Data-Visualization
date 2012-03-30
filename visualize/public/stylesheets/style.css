@@ -41,7 +41,8 @@ body {
     font-size: 75%;
 }
 
-#documents .document.topics {
+#documents .document.active {
+    background: #6e6e6e;
 }
 
 #docinfo {

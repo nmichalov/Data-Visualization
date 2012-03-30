@@ -73,4 +73,9 @@ $.getJSON(rawDataURL, function(data) {
     //            })
     //            .attr("text-anchor", "middle")
     //            .text(function(d, i) { return data[i].url; });
+
+        $(this)
+            .addClass('active')    
+            .siblings()
+                .removeClass('active');
 });

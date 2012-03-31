@@ -3,7 +3,9 @@ var rawDataURL= '/json-topic-data'
 
 // functions to be called later
 topicVec= function(topics){
-    topicArray= [0,0,0,0,0,0,0,0,0,0];
+    topicArray= [];
+    for (i=0;i<20;i++){
+        topicArray.push(0);}
     for (i=0;i<topics.length;i++){
         topicArray[(topics[i][0])] = topics[i][1];}
     return topicArray;  
